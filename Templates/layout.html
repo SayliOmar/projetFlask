@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+</head>
+<body>
+
+    <header>
+
+       
+{% if title!="login" and title!="inscription" %}
+
+
+
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ecole Triomphale</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse  navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills nav-fill  mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link {% if title== 'Acceuil'%} active {%endif%}" aria-current="page" href="/">  Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if title== 'formation'%} active {%endif%}" href="/formation">Formation</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link {% if title== 'contact'%} active {%endif%} " href="/contact" >Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/login" >Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/inscription" >s'inscrire</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+{%endif%}
+    </header>
+
+
+
+
+    <main>
+
+
+        {%block main%}   {%endblock%}
+
+    </main>
+
+
+
+
+
+    <footer>
+
+        <script src="{{url_for('static', filename='js/bootstrap.bundle.js')}}"></script>
+
+    </footer>
+    
+    
+
+
+   
+</body>
+</html>
