@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Ecole Triomphale</a>
+      <a class="navbar-brand" href="/">Ecole Triomphale</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,12 +34,23 @@
           <li class="nav-item">
             <a class="nav-link {% if title== 'contact'%} active {%endif%} " href="/contact" >Contact</a>
           </li>
+          {% if session['user_id'] %}
+            {% if session['user_id']==6%}
+                <li class="nav-item">
+                  <a class="nav-link{% if title== 'table'%} active {%endif%} " href="/tableBoard" >Tableau de Board</a>
+                </li>
+            {%endif%}
+          <li class="nav-item">
+            <a class="nav-link " href="/sedeconnecter" >Se deconnecter</a>
+          </li>
+          {%else %}
           <li class="nav-item">
             <a class="nav-link " href="/login" >Se connecter</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="/inscription" >s'inscrire</a>
           </li>
+          {%endif%}
         </ul>
         
       </div>

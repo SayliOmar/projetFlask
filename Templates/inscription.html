@@ -5,9 +5,20 @@
 {%block   main%}
 
 <main class="row h-100 border" style="height: 100vh!important;">
-
+    {% with messages = get_flashed_messages()%}
+        {% if messages%}
+            <ul>
+                {%for message in messages%}
+                    <li class="alert alert-danger">
+                        {{message}}
+                    </li>
+                {%endfor%}
+            </ul>
+        {%endif%}
+    {% endwith %}
     <div class="col my-5  ">
         <h2 class="texte-center my-5 px-5">S'inscrire</h2>
+
         <form class="w-75 mx-auto border p-3 mt-5" method="POST">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
